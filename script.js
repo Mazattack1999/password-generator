@@ -20,23 +20,23 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 function generatePassword() {
     var passwordLength = setPasswordLength();
-  console.log(passwordLength);
 
   // all available characters for password
   var availableCharacters = setAvailableCharacters();
 
   // create unshuffled password characters array
   var passwordCharacters = generatePasswordCharacters(availableCharacters, passwordLength);
-  console.log(passwordCharacters);
 
   // shuffle password characters
-  passwordCharacters = shuffleArray(passwordCharacters);
   
+  shuffleArray(passwordCharacters);
+  
+  // convert password character array to string
+  return arrayToString(passwordCharacters);
 }
 
 function setPasswordLength() {
@@ -115,6 +115,15 @@ function shuffleArray(array) {
       array[randomIndex] = value1;
     }
   }
+}
+
+function arrayToString(array){
+  password = "";
+  // convert password array into a string
+  for (var i = 0; i < array.length; i++) {
+    password = password + array[i];
+  }
+  return password;
 }
 
 
