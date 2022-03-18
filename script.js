@@ -41,12 +41,12 @@ function generatePassword() {
 
 function setPasswordLength() {
   // prompt and set user password length
-  var passwordLength = prompt("How many characters will your password have. Must be more than 8 and less than 128.");
+  var passwordLength = prompt("Set your password length. Must be more than 8 and less than 128.");
 
   // check if password length is valid length and is numeric
   while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)){
     alert("Invalid entry. Please enter a number between 8 and 128.");
-    var passwordLength = prompt("How many characters will your password have. Must be more than 8 and less than 128.");
+    var passwordLength = prompt("Set your password length. Must be more than 8 and less than 128.");
   }
   return passwordLength;
 }
