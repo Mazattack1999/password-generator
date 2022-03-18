@@ -89,7 +89,6 @@ function generatePasswordCharacters(charArray, passwordLength) {
     for (var i = 0; i < charArray.length; i++) {
 
       // check to make sure that passwordCharacters.length does not exceed specified password length
-      console.log(passwordCharacters.length, passwordLength);
       if (passwordCharacters.length >= passwordLength) {
         break;
       } else {
