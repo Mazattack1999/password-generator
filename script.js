@@ -29,6 +29,13 @@ function generatePassword() {
 
   // all available characters for password
   var availableCharacters = setAvailableCharacters();
+
+  // create unshuffled password characters array
+  var passwordCharacters = generatePasswordCharacters(availableCharacters, passwordLength);
+  console.log(passwordCharacters);
+
+  // shuffle password characters
+  passwordCharacters = shuffleArray(passwordCharacters);
   
 }
 
@@ -69,6 +76,45 @@ function setAvailableCharacters() {
     }
   }
   return availableCharacters;
+}
+
+function generatePasswordCharacters(charArray, passwordLength) {
+  // create an array of characters that the password WILL use
+  passwordCharacters = [];
+
+  // make passwordCharacters array the length of passwordLength value
+  while (passwordCharacters.length < passwordLength) {
+
+    // use each type of character that the user selected
+    for (var i = 0; i < charArray.length; i++) {
+
+      // check to make sure that passwordCharacters.length does not exceed specified password length
+      if (passwordCharacters.length === passwordLength) {
+        break;
+      } else {
+        charTypeArray = charArray[i];
+        // random value in charArray[i]
+        passwordCharacters.push(charTypeArray[Math.floor(Math.random() * charArray[i].length)]);
+      }
+    }
+  }
+  return passwordCharacters;
+}
+
+function shuffleArray(array) {
+
+  // shuffle 3 times
+  for (var i = 0; i < 3; i++) {
+    
+    for(var j = 0; j < array.length; j++){
+      var value1 = array[j];
+      var randomIndex = Math.floor(Math.random()*array.length); //random index in array
+
+      // switch value 1 and value 2
+      array[j] = array[randomIndex];
+      array[randomIndex] = value1;
+    }
+  }
 }
 
 
