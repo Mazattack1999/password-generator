@@ -16,6 +16,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -80,7 +81,7 @@ function setAvailableCharacters() {
 
 function generatePasswordCharacters(charArray, passwordLength) {
   // create an array of characters that the password WILL use
-  passwordCharacters = [];
+  var passwordCharacters = [];
 
   // make passwordCharacters array the length of passwordLength value
   while (passwordCharacters.length < passwordLength) {
